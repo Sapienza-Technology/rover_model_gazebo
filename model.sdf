@@ -1,0 +1,156 @@
+<?xml version='1.0'?>
+<sdf version='1.4'>
+  <model name="Junk">
+    <static>false</static>
+
+    <!-- BASE MOBILE-->
+    <link name='mobile-base'>
+      <!-- pose: posizione + orientazione (x,y,z)-->
+      <pose>0 0 .3 0 0 0</pose>
+      <collision name='collision'>
+        <!-- Oggetto collisione = visual-->
+        <geometry>
+          <box>
+            <!-- Dimensioni della collisione-->
+            <size>2 1.5 .1</size>
+          </box>
+        </geometry>
+      </collision>
+
+      <visual name='visual'>
+        <!-- Oggetto Visualizzabile-->
+        <geometry>
+          <box>
+            <!-- size: lunghezza, larghezza, altezza -->
+            <size>2 1.5 .1</size>
+          </box>
+        </geometry>
+      </visual>
+    </link>
+
+    <!-- RUOTA SINISTRA AVANTI-->
+    <link name="left_forward_wheel">
+      <pose>0.9 0.9 0.3 0 1.5707 1.5707</pose>
+      <collision name="collision">
+        <geometry>
+          <cylinder>
+            <radius>.2</radius>
+            <length>.2</length>
+          </cylinder>
+        </geometry>
+      </collision>
+      <visual name="visual">
+        <geometry>
+          <cylinder>
+            <radius>.2</radius>
+            <length>.2</length>
+          </cylinder>
+        </geometry>
+      </visual>
+    </link>
+    <!-- RUOTA SINISTRA INDIETRO-->
+    <link name="left_backward_wheel">
+      <pose>-0.9 0.9 0.3 0 1.5707 1.5707</pose>
+      <collision name="collision">
+        <geometry>
+          <cylinder>
+            <radius>.2</radius>
+            <length>.2</length>
+          </cylinder>
+        </geometry>
+      </collision>
+      <visual name="visual">
+        <geometry>
+          <cylinder>
+            <radius>.2</radius>
+            <length>.2</length>
+          </cylinder>
+        </geometry>
+      </visual>
+    </link>
+    <!-- RUOTA DESTRA AVANTI-->
+    <link name="right_forward_wheel">
+      <pose>0.9 -0.9 0.3 0 1.5707 1.5707</pose>
+      <collision name="collision">
+        <geometry>
+          <cylinder>
+            <radius>.2</radius>
+            <length>.2</length>
+          </cylinder>
+        </geometry>
+      </collision>
+      <visual name="visual">
+        <geometry>
+          <cylinder>
+            <radius>.2</radius>
+            <length>.2</length>
+          </cylinder>
+        </geometry>
+      </visual>
+    </link>
+    <!-- RUOTA DESTRA INDIETRO-->
+    <link name="right_backward_wheel">
+      <pose>-0.9 -0.9 0.3 0 1.5707 1.5707</pose>
+      <collision name="collision">
+        <geometry>
+          <cylinder>
+            <radius>.2</radius>
+            <length>.2</length>
+          </cylinder>
+        </geometry>
+      </collision>
+      <visual name="visual">
+        <geometry>
+          <cylinder>
+            <radius>.2</radius>
+            <length>.2</length>
+          </cylinder>
+        </geometry>
+      </visual>
+    </link>
+
+
+    <!-- JOINT PER LE RUOTE-->
+    <!--- Joint name: ruota sinistra avanti -->
+    <joint type="revolute" name="left_forward_wheel_joint">
+      <pose>0 0 0 0 0 0</pose>
+      <child>left_forward_wheel</child>
+      <parent>mobile-base</parent>
+      <axis>
+        <xyz>0 1 0</xyz>
+      </axis>
+    </joint>
+    <!--- Joint name: ruota sinistra indietro -->
+    <joint type="revolute" name="left_backward_wheel_joint">
+      <pose>0 0 0 0 0 0</pose>
+      <child>left_backward_wheel</child>
+      <parent>mobile-base</parent>
+      <axis>
+        <xyz>0 1 0</xyz>
+      </axis>
+    </joint>
+    <!--- Joint name: ruota destra avanti -->
+    <joint type="revolute" name="right_forward_wheel_joint">
+      <pose>0 0 0 0 0 0</pose>
+      <child>right_forward_wheel</child>
+      <parent>mobile-base</parent>
+      <axis>
+        <xyz>0 1 0</xyz>
+      </axis>
+    </joint>
+    <!--- Joint name: ruota destra indietro -->
+    <joint type="revolute" name="right_backward_wheel_joint">
+      <pose>0 0 0 0 0 0</pose>
+      <child>right_backward_wheel</child>
+      <parent>mobile-base</parent>
+      <axis>
+        <xyz>0 1 0</xyz>
+      </axis>
+    </joint>
+
+
+
+
+    
+  </model>
+</sdf>
